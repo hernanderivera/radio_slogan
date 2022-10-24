@@ -5,6 +5,23 @@
 		<meta charset="utf8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="manifest" href="manifest.webmanifest">
+		<link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+        <link rel="manifest" href="img/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
 
 		<style>
 			@keyframes scroll {
@@ -43,10 +60,10 @@
 			}
 
 			.image img {
-				filter: drop-shadow(0px -5px 0px #d1d1d1) /*top*/
-				        drop-shadow(5px 0px 0px #8d8f8e) /*right*/
-				        drop-shadow(-5px 0px 0px #7b7c7b) /*left*/
-				        drop-shadow(0px 5px 0px #676c65); /*bottom*/
+				filter: drop-shadow(0px -0px 0px #d1d1d1) /*top*/
+				        drop-shadow(0px 0px 0px #8d8f8e) /*right*/
+				        drop-shadow(-0px 0px 0px #7b7c7b) /*left*/
+				        drop-shadow(0px 0px 0px #676c65); /*bottom*/
 			}
 
 			.buttons > a:active,
@@ -96,7 +113,7 @@
 				align-items: center;
 				justify-content: center;
 
-				content: "Volume";
+				content: "Volumen";
 				pointer-events: none;
 				position: absolute;
 				top: 5px;
@@ -196,21 +213,21 @@
 			}
 
 			window.onload = () => {
-				audio = new Audio("peach_fm.ogg");
+				audio = new Audio("https://sonic.dattalive.com/8476/stream");
 
 				audio.onloadedmetadata = () => {
 					const button = document.querySelector('#playButton');
 					audio.currentTime = Math.random() * audio.duration;
 
 					audio.onplay = () => {
-						button.innerHTML = "Pause";
+						button.innerHTML = "Pausa";
 					}
 
 					audio.onpause = () => {
-						button.innerHTML = "Play";
+						button.innerHTML = "Escuchar";
 					}
 
-					audio.volume = 0.5;
+					audio.volume = 0.8;
 					audio.loop = true;
 					audio.play();
 				}
@@ -221,11 +238,12 @@
 		<div class="container emboss">
 			<div class="image"><img src="peach.png"></div>
 			<div class="buttons">
-				<a class="emboss" href="peach_fm.ogg" download="peach_fm.ogg">Download</a>
-				<a class="playpause emboss" onclick="playpause(); return false;" href="#" id="playButton">Play</a>
+				<a class="emboss" href="https://sonic.dattalive.com/cp/links.php?p=8476&m=pls" download="https://sonic.dattalive.com/cp/links.php?p=8476&m=pls">Descargar</a>
+				<a class="playpause emboss" onclick="playpause(); return false;" href="https://sonic.dattalive.com/8476/stream" id="playButton">Escuchar</a>
 			</div>
-			<div class="volume"><input title="Volume" type="range" min="0" max="1" step="0.05" value="0.5"  oninput="setVolume(this.value)"></div>
+			<div class="volume"><input title="Volumen" type="range" min="0" max="1" step="0.08" value="0.8"  oninput="setVolume(this.value)"></div>
 		</div>
-		<footer>Audio recorded via PCSX2 + the PAL version of Road Trip Adventure</footer>
+		<footer>Radio Streaming HEGO Web Services</footer>
 	</body>
 </html>
+
